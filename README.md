@@ -1,33 +1,31 @@
-Sure! Below is a **professional `README.md`** for your SMS Spam Classifier project. This README will include all essential sections, making it perfect for showcasing on GitHub.
 
----
 
 # 📧 SMS Spam Classifier with Skip-Gram Embeddings & Weighted Voting
 
-A powerful **SMS spam detection system** that uses **skip-gram embeddings** for feature extraction and combines **multiple machine learning models** (SVM, KNN, MLP) with a **weighted voting mechanism** to ensure high accuracy.
+A robust **SMS spam detection system** that leverages **skip-gram embeddings** for feature extraction and combines **multiple machine learning models** (SVM, KNN, MLP) with a **weighted voting mechanism** for highly accurate predictions.
 
 ---
 
 ## 🚀 Features
-- **Skip-gram embeddings** to extract informative text patterns.
-- **Multiple models**:  
+- **Skip-gram embeddings** to capture meaningful word patterns from SMS text.
+- Uses **three models**:
   - **Linear SVM**  
   - **K-Nearest Neighbors (KNN)**  
-  - **Multilayer Perceptron (MLP)**
-- **Weighted Voting System** for better predictions by prioritizing higher-performing models.
-- **Preprocessing** with tokenization, stopword removal, and lemmatization.
-- **Confusion matrix visualization** to evaluate model performance.
+  - **Multilayer Perceptron (MLP)**  
+- **Weighted voting system** that prioritizes higher-performing models.
+- **Preprocessing pipeline**: tokenization, stopword removal, and lemmatization.
+- **Confusion matrix visualization** for performance evaluation.
 
 ---
 
 ## 📝 Table of Contents
-1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Project Structure](#project-structure)
-4. [How It Works](#how-it-works)
-5. [Results](#results)
-6. [Contributing](#contributing)
-7. [License](#license)
+1. [Installation](#installation)  
+2. [Usage](#usage)  
+3. [Project Structure](#project-structure)  
+4. [How It Works](#how-it-works)  
+5. [Results](#results)  
+6. [Contributing](#contributing)  
+7. [License](#license)  
 
 ---
 
@@ -54,17 +52,15 @@ A powerful **SMS spam detection system** that uses **skip-gram embeddings** for 
 
 ## 🎯 Usage
 1. **Train Models**:
-   Run the training script to fit the SVM, KNN, and MLP models:
    ```bash
    python train.py
    ```
 
 2. **Predict New Messages**:
-   Test the system with any SMS message:
    ```python
    from main import predict_with_weighted_voting, models, weights
 
-   message = "Don't forget to submit the project report by tomorrow morning."
+   message = "Your package will be delivered tomorrow. Thank you for shopping with us!"
    prediction = predict_with_weighted_voting(models, message, weights)
    print(f"Prediction: {prediction}")
    ```
@@ -83,7 +79,7 @@ sms-spam-classifier/
 ├── README.md               # Project documentation
 ├── requirements.txt        # List of dependencies
 ├── train.py                # Script to train all models
-├── evaluate.py             # Evaluate model performance
+├── evaluate.py             # Script to evaluate model performance
 ├── main.py                 # Main script for predictions
 ├── data/                   # Folder for storing datasets
 └── models/                 # Folder to save trained models
@@ -93,54 +89,89 @@ sms-spam-classifier/
 
 ## 💡 How It Works
 1. **Data Preprocessing**:
-   - Special characters and numbers are removed.
-   - Messages are tokenized and stopwords are removed.
-   - Words are lemmatized for normalization.
+   - Removes special characters and numbers.
+   - Tokenizes messages and removes stopwords.
+   - Lemmatizes words for normalization.
 
 2. **Feature Engineering**:
-   - Uses **skip-gram embeddings** with 1-grams and 2-grams to capture meaningful word patterns.
+   - Uses **skip-gram embeddings** to generate 1-gram and 2-gram word patterns.
 
 3. **Model Training**:
-   - Three models are trained: **SVM, KNN, and MLP**.
-   - Each model predicts whether a message is **Spam or Ham**.
+   - Trains **SVM, KNN, and MLP** models on the preprocessed SMS data.
 
 4. **Weighted Voting**:
-   - Models are assigned **weights** based on their performance.
-   - The **final prediction** is made by aggregating weighted votes from all models.
+   - Each model is assigned a **weight based on accuracy**.
+   - **Weighted votes** are used to decide the final prediction (Spam/Ham).
 
 ---
 
 ## 📊 Results
+
+### **Performance Metrics**
+
 | **Model** | **Accuracy** | **Precision** | **Recall** | **F1-Score** |
 |-----------|--------------|---------------|------------|--------------|
-| SVM       | 98.2%        | 90.1%         | 87.6%      | 91.9%        |
-| KNN       | 98.1%        | 88.4%         | 88.4%      | 91.7%        |
-| MLP       | 98.3%        | 90.1%         | 90.1%      | 92.0%        |
+| **SVM**   | 98.0%        | 0.99          | 0.85       | 0.92         |
+| **KNN**   | 93.3%        | 1.00          | 0.49       | 0.66         |
+| **MLP**   | 97.6%        | 1.00          | 0.82       | 0.90         |
 
-**Example Prediction Results:**
+### **Confusion Matrices**
+#### SVM Model:
 ```
-Input: "Congratulations! You've won a $1000 gift card! Call now!"
-Prediction: Spam
+[[1452    1]
+ [  32  187]]
+```
+#### KNN Model:
+```
+[[1453    0]
+ [ 112  107]]
+```
+#### MLP Model:
+```
+[[1453    0]
+ [  40  179]]
+```
 
-Input: "Let's meet for lunch tomorrow."
-Prediction: Ham
+---
+
+### **Prediction Example:**
+```python
+message = "Congratulations! You've won a free ticket. Call now!"
+prediction = predict_with_weighted_voting(models, message, weights)
+print(f"Prediction: {prediction}")
+```
+
+**Expected Output:**
+```
+Individual Model Predictions: {'SVM': 'Spam', 'KNN': 'Spam', 'MLP': 'Spam'}
+Final Consensus Prediction: Spam
 ```
 
 ---
 
 ## 📈 Confusion Matrix Visualization
-Below is an example confusion matrix visualization for SVM, KNN, and MLP models.
+
+Below is a sample **confusion matrix** for all three models.
 
 ![Confusion Matrix](assets/confusion_matrix.png)
 
 ---
 
 ## 🤝 Contributing
-We welcome contributions! If you'd like to improve the model, fix bugs, or add new features:
+We welcome contributions! If you'd like to improve the model or add new features:
 1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add new feature'`).
-4. Push to your branch (`git push origin feature-branch`).
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-branch
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add new feature'
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-branch
+   ```
 5. Open a pull request.
 
 ---
@@ -151,8 +182,8 @@ This project is not licensed
 ---
 
 ## 💬 Contact
-If you have any questions or suggestions, feel free to reach out at:  
-**Email:** ashishkumarnith4@gmail.com  
+For questions or suggestions, feel free to reach out at:  
+**Email:** your-email@example.com  
 **GitHub:** [kashish049](https://github.com/kashish049)
 
 ---
@@ -168,4 +199,4 @@ If you found this project helpful, please give it a ⭐ on GitHub!
 
 ---
 
-This **README.md** should give a professional appearance to your project and provide users with all the necessary information to use, understand, and contribute to it effectively. Let me know if you need any more customizations!
+This updated **README.md** now reflects the **actual model performance metrics** and maintains a professional structure, ready to be used for your GitHub project. Let me know if you need further changes!
