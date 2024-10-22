@@ -1,1 +1,7 @@
+### 📖 **About SMS Spam Detection**  
 
+**SMS spam detection** refers to the process of identifying and filtering **unwanted or malicious text messages** that contain advertising, phishing attempts, scams, or other unsolicited content. Spam messages often aim to trick recipients into sharing personal information, clicking harmful links, or purchasing fraudulent products. 
+
+Given the rising use of mobile communication, spam detection is crucial to **protect users from security threats** and **improve user experience**. Advanced techniques in **Natural Language Processing (NLP)** and **Machine Learning (ML)** enable automated detection by analyzing the message’s content, patterns, and frequency. Models like **SVM, KNN, and neural networks** classify messages as either **ham (legitimate)** or **spam** based on word patterns and features extracted from the text. 
+
+Spam detection systems are essential for **reducing fraud**, **preventing phishing**, and **maintaining trust** in mobile communication platforms.
