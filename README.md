@@ -1,156 +1,134 @@
-📩 SMS Spam Classifier — Machine Learning & NLP Project
+# 📩 SMS Spam Classifier — Machine Learning & NLP Project
 
-A classical machine learning–based SMS spam detection system built to classify messages as Spam or Ham (Not Spam) using natural language preprocessing and multiple ML models.
-This project demonstrates end-to-end ML workflow, including data cleaning, feature extraction, model training, evaluation, and comparison.
+A **classical machine learning–based SMS spam detection system** that classifies messages as **Spam** or **Ham (Not Spam)** using **Natural Language Processing (NLP)** techniques and multiple ML models.
 
-📌 Resume-aligned focus: NLP preprocessing, ML model training, precision–recall analysis, and evaluation — no black-box deep learning.
+This project demonstrates an **end-to-end ML workflow** including data preprocessing, feature extraction, model training, evaluation, and comparison.
 
-🧠 Problem Statement
+---
 
-SMS spam causes financial fraud and poor user experience.
-The goal of this project is to automatically classify SMS messages using machine learning and NLP techniques to reduce spam exposure.
+## 🧠 Problem Statement
+Unwanted SMS spam leads to financial fraud and poor user experience.  
+The objective of this project is to **automatically detect spam messages** using machine learning and NLP techniques.
 
-🛠️ Tech Stack
+---
 
-Language: Python
+## 🛠️ Tech Stack
+- **Language:** Python  
+- **Libraries:** Scikit-learn, NLTK, NumPy, Pandas, Matplotlib  
+- **Machine Learning Models:**
+  - Support Vector Machine (SVM)
+  - K-Nearest Neighbors (KNN)
+  - Multilayer Perceptron (MLP)
+- **Concepts:** NLP, Feature Engineering, Model Evaluation
 
-Libraries: Scikit-learn, NLTK, NumPy, Pandas, Matplotlib
+---
 
-ML Models:
+## ✨ Key Features
+- End-to-end **machine learning pipeline** for text classification
+- **Text preprocessing**:
+  - Cleaning & normalization
+  - Tokenization
+  - Stopword removal
+  - Lemmatization
+- Feature extraction from SMS text
+- Training and comparison of multiple ML models
+- Performance evaluation using:
+  - Accuracy
+  - Precision
+  - Recall
+  - F1-score
+- **Confusion matrix analysis** for error inspection
 
-Support Vector Machine (SVM)
+---
 
-K-Nearest Neighbors (KNN)
-
-Multilayer Perceptron (MLP)
-
-Concepts: NLP, Feature Engineering, Model Evaluation
-
-✨ Key Features
-
-End-to-end ML pipeline for text classification
-
-Text preprocessing:
-
-Cleaning & normalization
-
-Tokenization
-
-Stopword removal
-
-Lemmatization
-
-Feature extraction using word-based representations
-
-Multiple model training & comparison
-
-Performance evaluation using:
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-score
-
-Confusion matrix analysis to study false positives/negatives
-
-📂 Project Structure
+## 📂 Project Structure
 SMS-SPAM-CLASSIFIER/
 │
-├── README.md                   # Project documentation
-├── sms_spam_classifier.ipynb   # Complete ML pipeline (Colab notebook)
-├── sms_spam_collection.csv     # Dataset
+├── README.md
+├── sms_spam_classifier.ipynb # Complete ML pipeline
+├── sms_spam_collection.csv # Dataset
 
+yaml
+Copy code
 
-📌 Entire implementation is available in a single notebook for clarity and easy review by recruiters.
+---
 
-⚙️ How It Works (Step-by-Step)
-1️⃣ Data Preprocessing
+## ⚙️ How It Works
 
-Removed punctuation, numbers, and extra spaces
+### 1. Data Preprocessing
+- Removed punctuation, numbers, and extra spaces
+- Converted text to lowercase
+- Tokenized SMS messages
+- Removed stopwords
+- Applied lemmatization
 
-Converted text to lowercase
+### 2. Feature Engineering
+- Converted processed text into numerical features suitable for ML models
+- Focused on interpretable, classical NLP representations
 
-Tokenized SMS messages
+### 3. Model Training
+Trained and evaluated the following models:
+- **SVM** – margin-based classifier
+- **KNN** – distance-based classifier
+- **MLP** – shallow neural network for comparison
 
-Removed stopwords
+### 4. Model Evaluation
+- Used train–test split
+- Compared models using precision–recall trade-offs
+- Analyzed confusion matrices to understand misclassifications
 
-Applied lemmatization for word normalization
+---
 
-2️⃣ Feature Engineering
+## 📊 Results & Observations
 
-Converted cleaned text into numerical vectors suitable for ML models
+| Model | Accuracy | Observation |
+|------|----------|-------------|
+| SVM | ~98% | Best balance between precision and recall |
+| KNN | ~93% | High precision, lower recall |
+| MLP | ~97% | Strong performance, slightly less interpretable |
 
-Focused on interpretable, classical NLP features
+**Key Learning:**  
+Accuracy alone is not sufficient in spam detection; **precision and recall are critical** to reduce false positives.
 
-3️⃣ Model Training
+---
 
-Trained and compared:
-
-SVM → strong margin-based classifier
-
-KNN → distance-based baseline model
-
-MLP → shallow neural network for comparison
-
-4️⃣ Model Evaluation
-
-Used train–test split
-
-Evaluated using precision–recall trade-offs
-
-Analyzed confusion matrices to understand misclassifications
-
-📊 Results & Observations
-Model	Accuracy	Key Insight
-SVM	~98%	Best balance of precision & recall
-KNN	~93%	High precision, lower recall
-MLP	~97%	Strong performance, slightly less interpretable
-
-📌 Learning Outcome:
-Accuracy alone is insufficient — precision and recall matter more in spam detection to avoid false positives.
-
-🧪 Sample Prediction
+## 🧪 Sample Prediction
+```python
 message = "Congratulations! You've won a free ticket. Call now!"
-
-
 Output:
 
+nginx
+Copy code
 Spam
-
-🎯 What This Project Demonstrates (For Recruiters)
-
+🎯 What This Project Demonstrates
 Strong understanding of NLP fundamentals
 
 Ability to build ML systems from scratch
 
-Experience with model evaluation and trade-off analysis
+Experience in model evaluation and comparison
 
-Clear grasp of classical ML models (often preferred in interviews)
+Practical use of classical machine learning models
 
-Clean, explainable, and reproducible experimentation
+Clean and explainable experimentation
 
 📚 Dataset
-
 UCI SMS Spam Collection Dataset
-Widely used benchmark dataset for NLP and spam detection tasks.
 
 🚀 Future Improvements
-
-Add TF-IDF + n-grams comparison
+TF-IDF and n-gram feature comparison
 
 Hyperparameter tuning
 
-Deploy as a REST API
+REST API deployment
 
-Add real-time inference demo
+Real-time inference demo
 
 👤 Author
-
 Ashish Kumar
 
 GitHub: https://github.com/kashish049
 
 Email: kashish04945@gmail.com
+
+⭐ Support
+If you found this project useful, feel free to give it a ⭐.
